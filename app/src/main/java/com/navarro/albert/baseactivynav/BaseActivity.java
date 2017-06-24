@@ -1,9 +1,12 @@
 package com.navarro.albert.baseactivynav;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.util.ArrayMap;
+import android.util.SparseArray;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,7 +22,24 @@ import com.navarro.albert.baseactivynav.activities.Activity1;
 import com.navarro.albert.baseactivynav.activities.Activity2;
 import com.navarro.albert.baseactivynav.activities.Activity3;
 
-public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.HashMap;
+import java.util.Map;
+
+public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    Toolbar toolbar;
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    ArrayMap <Integer, Class> m,n;
+    private CharSequence mDrawerTitle, mTitle;
+
+    {
+        m = new ArrayMap<>();
+        m.put(R.id.activity1, Activity1.class);
+        m.put(R.id.activity2, Activity2.class);
+        m.put(R.id.activity3, Activity3.class);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,41 +50,62 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
 
     protected void setView() {
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mTitle = mDrawerTitle = getTitle();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer,
+                toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                getSupportActionBar().setTitle(mTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                getSupportActionBar().setTitle(mDrawerTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+        };
+
+
         drawer.setDrawerListener(toggle);
+
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
+    protected void setItemChecked() {
+        navigationView.setCheckedItem(whatIsMyId());
+    }
 
     @Override
    public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        switch (id){
-            case R.id.activity1:
-                startActivity(new Intent(getApplicationContext(),Activity1.class));
-                break;
-            case R.id.activity2:
-                startActivity(new Intent(getApplicationContext(),Activity2.class));
-                break;
-            case R.id.activity3:
-                startActivity(new Intent(getApplicationContext(),Activity3.class));
-                break;
+        final int id = item.getItemId();
+        if(id != whatIsMyId()){
+            switch (id){
+                default:
+                    startActivity(new Intent(getApplicationContext(),m.get(id)));
+                    break;
+            }
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    protected abstract int whatIsMyId();
 
     @Override
     public void setContentView(int layoutResID) {

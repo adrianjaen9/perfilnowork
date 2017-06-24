@@ -13,5 +13,13 @@ public class Activity1 extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
         setTitle("Activity1");
+        setItemChecked();
     }
+
+    @Override
+    protected int whatIsMyId() {
+        return R.id.activity1;
+    }
+
+
 }
