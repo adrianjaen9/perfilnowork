@@ -69,7 +69,7 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
 
     }
 
-    
+
     @Override
     public void onClick(View v) {
         TextView result = (TextView)findViewById(R.id.result);
@@ -190,6 +190,6 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected int whatIsMyId() {
-        return R.id.activity2;
+        return R.id.activity3;
     }
 }
