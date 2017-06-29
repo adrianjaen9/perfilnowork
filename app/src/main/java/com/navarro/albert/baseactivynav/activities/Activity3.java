@@ -22,15 +22,9 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
     Double numero1, numero2, resultat;
 
 
-
-    private int numero = 0;
-    private String TAG= "MainActivity";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.v(TAG, "onCreate");
         setContentView(R.layout.activity_3);
         num0 = (Button) findViewById(R.id.num0);
         num0.setOnClickListener(this);
@@ -75,20 +69,7 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
 
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.v(TAG,"Se ha llamado onsRestore");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.v(TAG,"Se ha llamado onSave");
-    }
-
-
-
+    
     @Override
     public void onClick(View v) {
         TextView result = (TextView)findViewById(R.id.result);
