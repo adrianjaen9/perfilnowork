@@ -13,19 +13,22 @@ import com.navarro.albert.baseactivynav.R;
 public class Activity3 extends BaseActivity implements View.OnClickListener {
 
     Button igual, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec;
+    private TextView result;
     Boolean suma = false;
     Boolean resta = false;
     Boolean multi = false;
     Boolean divi = false;
     Boolean modul = false;
     Boolean decimal = false;
-    Double numero1, numero2, resultat;
+    Double numero1, numero2;
+    private double resultat;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
+        result = (TextView) findViewById(R.id.result) ;
         num0 = (Button) findViewById(R.id.num0);
         num0.setOnClickListener(this);
         num1 = (Button) findViewById(R.id.num1);
@@ -72,7 +75,7 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        TextView result = (TextView)findViewById(R.id.result);
+        result = (TextView)findViewById(R.id.result);
         String a =result.getText().toString();
         switch (v.getId()){
             case R.id.num0:
@@ -146,7 +149,8 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
                 divi = false;
                 decimal = false;
                 modul = false;
-                result.setText("");
+                resultat = 0.0;
+                result.setText("0.0");
                 break;
             case R.id.igual:
                 Log.v("HOLA","hemos entrado en el igual");
@@ -181,12 +185,21 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
                 break;
 
         }
-
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        resultat = savedInstanceState.getDouble("resultado");
+        result.setText(String.valueOf(resultat));
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putDouble("resultado",resultat);
 
-
+    }
 
     @Override
     protected int whatIsMyId() {
