@@ -12,8 +12,9 @@
             android:title="Activity2"
             android:checkable="true" />
         <item
+            android:icon="@drawable/ic_calculator"
             android:id="@+id/activity3"
-            android:title="Activity3"
+            android:title="CALCULATOR"
             android:checkable="true" />
     </group>
         </menu>

@@ -6,11 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.navarro.albert.baseactivynav.BaseActivity;
 import com.navarro.albert.baseactivynav.R;
 
-public class Activity3 extends BaseActivity implements View.OnClickListener {
+public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListener {
 
     Button igual, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec;
     private TextView result;
@@ -67,7 +68,7 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
         mod.setOnClickListener(this);
         igual = (Button) findViewById(R.id.igual);
         igual.setOnClickListener(this);
-        setTitle("Activity3");
+        setTitle("SUPERCALCULATOR");
         setItemChecked();
 
     }
@@ -79,34 +80,64 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
         String a =result.getText().toString();
         switch (v.getId()){
             case R.id.num0:
-                result.setText(a+"0");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("0");
+                }
+                else{result.setText(a+"0");}
                 break;
             case R.id.num1:
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("1");
+                }
                 result.setText(a+"1");
                 break;
             case R.id.num2:
-                result.setText(a+"2");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("2");
+                }
+                else{result.setText(a+"2");}
                 break;
             case R.id.num3:
-                result.setText(a+"3");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("3");
+                }
+                else{result.setText(a+"3");}
                 break;
             case R.id.num4:
-                result.setText(a+"4");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("4");
+                }
+                else{result.setText(a+"4");}
                 break;
             case R.id.num5:
-                result.setText(a+"5");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("5");
+                }
+                else{result.setText(a+"5");}
                 break;
             case R.id.num6:
-                result.setText(a+"6");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("6");
+                }
+                else{result.setText(a+"6");}
                 break;
             case R.id.num7:
-                result.setText(a+"7");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("7");
+                }
+                else{result.setText(a+"7");}
                 break;
             case R.id.num8:
-                result.setText(a+"8");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("8");
+                }
+                else{result.setText(a+"8");}
                 break;
             case R.id.num9:
-                result.setText(a+"9");
+                if (a == "ERROR" | a == "0.0"){
+                    result.setText("9");
+                }
+                else{result.setText(a+"9");}
                 break;
             case R.id.sum:
                 suma = true;
@@ -161,11 +192,21 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
                     resultat = numero1 - numero2;
                     result.setText(String.valueOf(resultat));
                 }else if ( multi == true){
-                    resultat = numero1 * numero2;
-                    result.setText(String.valueOf(resultat));
+                    if(numero1 == 69 & numero2 == 69) {
+                        Toast.makeText(getApplicationContext(), "ERES UN GUARRO", Toast.LENGTH_LONG).show();
+                        resultat = numero1 * numero2;
+                        result.setText(String.valueOf(resultat));
+
+                    }else{
+                            resultat = numero1 * numero2;
+                            result.setText(String.valueOf(resultat));
+                        }
                 }else if ( divi == true){
+                    if (numero2 != 0){
                     resultat = numero1 / numero2;
-                    result.setText(String.valueOf(resultat));
+                    result.setText(String.valueOf(resultat));}
+                    else { Toast.makeText(getApplicationContext(), "ERES DE ADE O QUE PASA?", Toast.LENGTH_LONG).show();
+                        result.setText("ERROR");}
                 }else if ( modul == true){
                     resultat = numero1 % numero2;
                     result.setText(String.valueOf(resultat));
