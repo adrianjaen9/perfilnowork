@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaseActivyNav.iml" filepath="$PROJECT_DIR$/BaseActivyNav.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Calcumenu.iml" filepath="$PROJECT_DIR$/Calcumenu.iml" />
       <module fileurl="file://$PROJECT_DIR$/NavigationDrawerExample.iml" filepath="$PROJECT_DIR$/NavigationDrawerExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/NavigationDrawerExample.iml" filepath="$PROJECT_DIR$/NavigationDrawerExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

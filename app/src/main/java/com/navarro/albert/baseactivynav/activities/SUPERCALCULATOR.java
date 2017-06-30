@@ -1,5 +1,7 @@
 package com.navarro.albert.baseactivynav.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +15,7 @@ import com.navarro.albert.baseactivynav.R;
 
 public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListener {
 
-    Button igual, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec;
+    Button igual, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec, tont;
     private TextView result;
     Boolean suma = false;
     Boolean resta = false;
@@ -68,6 +70,8 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
         mod.setOnClickListener(this);
         igual = (Button) findViewById(R.id.igual);
         igual.setOnClickListener(this);
+        tont = (Button) findViewById(R.id.tont);
+        tont.setOnClickListener(this);
         setTitle("SUPERCALCULATOR");
         setItemChecked();
 
@@ -171,6 +175,10 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
                 numero1 = Double.parseDouble(a);
                 result.setText("");
                 break;
+            case R.id.tont:
+                Uri uri = Uri.parse("http://www.uv.es/uvweb/magisteri/es/facultad-magisterio-1285848222376.html");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             case R.id.ac:
                 numero1 = 0.0;
                 numero2 = 0.0;
