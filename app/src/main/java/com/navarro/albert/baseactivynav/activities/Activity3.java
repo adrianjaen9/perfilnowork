@@ -150,10 +150,9 @@ public class Activity3 extends BaseActivity implements View.OnClickListener {
                 decimal = false;
                 modul = false;
                 resultat = 0.0;
-                result.setText("0.0");
+                result.setText("");
                 break;
             case R.id.igual:
-                Log.v("HOLA","hemos entrado en el igual");
                 numero2 = Double.parseDouble(a);
                 if ( suma == true){
                     resultat = numero1 + numero2;
