@@ -14,11 +14,18 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></Toolbar>
+
         <TextView
             android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:layout_weight="1"
             android:text=""
             tools:text="" />
     </LinearLayout>

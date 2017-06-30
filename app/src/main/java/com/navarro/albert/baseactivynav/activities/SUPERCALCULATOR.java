@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.navarro.albert.baseactivynav.BaseActivity;
 import com.navarro.albert.baseactivynav.R;
+
 
 public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListener {
 
@@ -253,4 +256,34 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
     protected int whatIsMyId() {
         return R.id.activity3;
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_3_options, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.wolfram) {
+            Uri uri = Uri.parse("https://www.wolframalpha.com/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.navegador){
+            Uri uri = Uri.parse("https://www.google.es/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.call){
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:666-666-666"));
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
