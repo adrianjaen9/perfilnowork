@@ -259,7 +259,7 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_3_options, menu);
+        getMenuInflater().inflate(R.menu.activity3_options, menu);
         return true;
     }
 
