@@ -39,14 +39,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-
     @Override
     public void onClick(View view) {
-        if (silent){
-            Toast.makeText(getApplicationContext(), "WELCOME AGAIN", Toast.LENGTH_LONG).show();
-            Intent correct = new Intent(this, SUPERCALCULATOR.class);
-            startActivity(correct);
-        }else {
             switch (view.getId()) {
                 case R.id.signup:
                     Intent i = new Intent(this, SIGNUP.class);
@@ -77,11 +71,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         startActivity(intent);
                     }
 
-                    break;
-            }
-        }
-
+                    break;}
     }
+
 }
+
 
 
