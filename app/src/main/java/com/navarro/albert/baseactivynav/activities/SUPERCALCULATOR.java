@@ -1,6 +1,7 @@
 package com.navarro.albert.baseactivynav.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.navarro.albert.baseactivynav.BaseActivity;
+import com.navarro.albert.baseactivynav.LOGIN.Login;
 import com.navarro.albert.baseactivynav.R;
 
 
@@ -28,6 +30,7 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
     Boolean decimal = false;
     Double numero1, numero2;
     private double resultat;
+    String PREFS_NAME = "logout";
 
 
     @Override
@@ -209,13 +212,13 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
                         result.setText(String.valueOf(resultat));
 
                     }else{
-                            resultat = numero1 * numero2;
-                            result.setText(String.valueOf(resultat));
-                        }
+                        resultat = numero1 * numero2;
+                        result.setText(String.valueOf(resultat));
+                    }
                 }else if ( divi == true){
                     if (numero2 != 0){
-                    resultat = numero1 / numero2;
-                    result.setText(String.valueOf(resultat));}
+                        resultat = numero1 / numero2;
+                        result.setText(String.valueOf(resultat));}
                     else { Toast.makeText(getApplicationContext(), "ERES DE ADE O QUE PASA?", Toast.LENGTH_LONG).show();
                         result.setText("ERROR");}
                 }else if ( modul == true){
@@ -281,6 +284,14 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:666-666-666"));
             startActivity(intent);
+        }else if (id == R.id.logout){
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+            SharedPreferences.Editor editor = settings.edit();
+
+            editor.putBoolean("silentMode", false);
         }
 
         return super.onOptionsItemSelected(item);
