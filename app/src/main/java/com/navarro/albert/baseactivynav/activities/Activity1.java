@@ -21,5 +21,4 @@ public class Activity1 extends BaseActivity {
         return R.id.activity1;
     }
 
-
 }

@@ -35,9 +35,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         password = (EditText) findViewById(R.id.pass);
         helper = MyDataBaseHelper.getInstance(this);
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        silent = settings.getBoolean("myBoolean", false);
-
+        silent = settings.getBoolean("logged", false);
     }
+
 
     @Override
     public void onClick(View view) {
@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                             SharedPreferences.Editor editor = settings.edit();
 
-                            editor.putBoolean("silentMode", true);
+                            editor.putBoolean("logged", true);
 
                             editor.apply();
                         } else {

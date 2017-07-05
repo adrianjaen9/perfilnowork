@@ -11,14 +11,14 @@ import com.navarro.albert.baseactivynav.LOGIN.Login;
 import com.navarro.albert.baseactivynav.activities.SUPERCALCULATOR;
 
 public class SPLASHACTIVITY extends AppCompatActivity {
-    String PREFS_NAME = "Logged";
+    String PREFS_NAME = "Loggedin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashactivity);
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        boolean something = settings.getBoolean("myBoolean", );
+        boolean something = settings.getBoolean("logged", false);
         if (something){
             Toast.makeText(getApplicationContext(), "WELCOME AGAIN", Toast.LENGTH_LONG).show();
             Intent correct = new Intent(this, SUPERCALCULATOR.class);

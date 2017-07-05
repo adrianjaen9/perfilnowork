@@ -30,7 +30,7 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
     Boolean decimal = false;
     Double numero1, numero2;
     private double resultat;
-    String PREFS_NAME = "logout";
+    String PREFS_NAME = "Loggedin";
 
 
     @Override
@@ -291,7 +291,7 @@ public class SUPERCALCULATOR extends BaseActivity implements View.OnClickListene
 
             SharedPreferences.Editor editor = settings.edit();
 
-            editor.putBoolean("silentMode", false);
+            editor.putBoolean("logged", false);
         }
 
         return super.onOptionsItemSelected(item);
