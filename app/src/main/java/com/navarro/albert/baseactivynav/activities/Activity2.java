@@ -21,6 +21,7 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
     image9, image10, image11, image12, image13, image14, image15, image16;
     List< ImageView > fotos = new LinkedList<>();
     List< Drawable> drawables = new LinkedList<>();
+    boolean primer = true;
 
 
         @Override
@@ -29,22 +30,48 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_2);
         setTitle("Activity2");
         setItemChecked();
-        image1 = (ImageView) findViewById(R.id.p1);
-        image2 = (ImageView) findViewById(R.id.p2);
-        image3 = (ImageView) findViewById(R.id.p3);
-        image4 = (ImageView) findViewById(R.id.p4);
-        image5 = (ImageView) findViewById(R.id.p5);
-        image6 = (ImageView) findViewById(R.id.p6);
-        image7 = (ImageView) findViewById(R.id.p7);
-        image8 = (ImageView) findViewById(R.id.p8);
-        image9 = (ImageView) findViewById(R.id.p9);
-        image10 = (ImageView) findViewById(R.id.p10);
-        image11 = (ImageView) findViewById(R.id.p11);
-        image12 = (ImageView) findViewById(R.id.p12);
-        image13 = (ImageView) findViewById(R.id.p13);
-        image14 = (ImageView) findViewById(R.id.p14);
-        image15 = (ImageView) findViewById(R.id.p15);
-        image16 = (ImageView) findViewById(R.id.p16);
+        image1 = (ImageView) findViewById(R.id.i1);
+            image1.setOnClickListener(this);
+        image2 = (ImageView) findViewById(R.id.i2);
+            image2.setOnClickListener(this);
+        image3 = (ImageView) findViewById(R.id.i3);
+            image3.setOnClickListener(this);
+        image4 = (ImageView) findViewById(R.id.i4);
+            image4.setOnClickListener(this);
+        image5 = (ImageView) findViewById(R.id.i5);
+            image5.setOnClickListener(this);
+        image6 = (ImageView) findViewById(R.id.i6);
+            image6.setOnClickListener(this);
+        image7 = (ImageView) findViewById(R.id.i7);
+            image7.setOnClickListener(this);
+        image8 = (ImageView) findViewById(R.id.i8);
+            image8.setOnClickListener(this);
+        image9 = (ImageView) findViewById(R.id.i9);
+            image9.setOnClickListener(this);
+        image10 = (ImageView) findViewById(R.id.i10);
+            image10.setOnClickListener(this);
+        image11 = (ImageView) findViewById(R.id.i11);
+            image11.setOnClickListener(this);
+        image12 = (ImageView) findViewById(R.id.i12);
+            image12.setOnClickListener(this);
+        image13 = (ImageView) findViewById(R.id.i13);
+            image13.setOnClickListener(this);
+        image14 = (ImageView) findViewById(R.id.i14);
+            image14.setOnClickListener(this);
+        image15 = (ImageView) findViewById(R.id.i15);
+            image15.setOnClickListener(this);
+        image16 = (ImageView) findViewById(R.id.i16);
+            image16.setOnClickListener(this);
+            p0 = (Drawable) getResources().getDrawable(R.drawable.bb) ;
+            p1 = (Drawable) getResources().getDrawable(R.drawable.g6) ;
+            p2 = (Drawable) getResources().getDrawable(R.drawable.iphone) ;
+            p3 = (Drawable) getResources().getDrawable(R.drawable.s8) ;
+            p4 = (Drawable) getResources().getDrawable(R.drawable.sony) ;
+            p5 = (Drawable) getResources().getDrawable(R.drawable.tocho) ;
+            p6 = (Drawable) getResources().getDrawable(R.drawable.mobil) ;
+            p7 = (Drawable) getResources().getDrawable(R.drawable.p10) ;
+
+
         fotos.add(image1);
             fotos.add(image2);
             fotos.add(image3);
@@ -80,113 +107,114 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        Drawable b, c;
         switch(view.getId()){
-            case R.id.p1:
+            case R.id.i1:
                 int n = troba(fotos, image1);
                 if (n > 7) n = n - 8;
                 Drawable a = drawables.get(n);
                 CoolImageFlipper flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image1);
                 break;
-            case R.id.p2:
+            case R.id.i2:
                 n = troba(fotos, image2);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image2);
                 break;
-            case R.id.p3:
+            case R.id.i3:
                 n = troba(fotos, image3);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image3);
                 break;
-            case R.id.p4:
+            case R.id.i4:
                 n = troba(fotos, image4);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image4);
                 break;
-            case R.id.p5:
+            case R.id.i5:
                 n = troba(fotos, image5);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image5);
                 break;
-            case R.id.p6:
+            case R.id.i6:
                 n = troba(fotos, image6);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image6);
                 break;
-            case R.id.p7:
+            case R.id.i7:
                 n = troba(fotos, image7);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image7);
                 break;
-            case R.id.p8:
+            case R.id.i8:
                 n = troba(fotos, image8);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image8);
                 break;
-            case R.id.p9:
+            case R.id.i9:
                 n = troba(fotos, image9);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image9);
                 break;
-            case R.id.p10:
+            case R.id.i10:
                 n = troba(fotos, image10);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image10);
                 break;
-            case R.id.p11:
+            case R.id.i11:
                 n = troba(fotos, image11);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image11);
                 break;
-            case R.id.p12:
+            case R.id.i12:
                 n = troba(fotos, image12);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image12);
                 break;
-            case R.id.p13:
+            case R.id.i13:
                 n = troba(fotos, image13);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image13);
                 break;
-            case R.id.p14:
+            case R.id.i14:
                 n = troba(fotos, image14);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image14);
                 break;
-            case R.id.p15:
+            case R.id.i15:
                 n = troba(fotos, image15);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
                 flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image15);
                 break;
-            case R.id.p16:
+            case R.id.i16:
                 n = troba(fotos, image16);
                 if (n > 7) n = n - 8;
                 a = drawables.get(n);
