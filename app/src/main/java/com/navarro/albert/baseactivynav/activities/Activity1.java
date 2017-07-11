@@ -44,7 +44,7 @@ public class Activity1 extends BaseActivity implements View.OnClickListener{
         buttonContent = (Button) findViewById(R.id.update);
         buttonContent.setOnClickListener(this);
 
-        image = (ImageView) findViewById(R.id.imageView);
+        image = (ImageView) findViewById(R.id.imageView6);
 
         canWeRead = canWeRead();
         if(canWeRead) {
@@ -86,18 +86,14 @@ public class Activity1 extends BaseActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.update:
-                /*
-                    Apunte:
-                    Si utilizamos ACTION.MANAGE_DOCUMENTS para escoger la foto tendremos que añadir unas líneas extras:
-                    puedes leer sobre ello aquí: https://developer.android.com/guide/topics/providers/document-provider.html#permissions
-                    Mejor utilizar el modo ACTION_PICK
-                 */
+            PermissionUtils.checkReadExternalStoragePermissions(activity,MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+            Intent pickAnImage = new Intent(
+                    Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            pickAnImage.setType("image/*");
 
-                Intent getImageAsContent = getContentIntent();
-                getImageAsContent.setType("image/*");
-                startActivityForResult(getImageAsContent, 1);
-                break;
-
+            startActivityForResult(pickAnImage, 2);
+            break;
             default:
                 Log.v("OnClick", "Not implemented");
         }
