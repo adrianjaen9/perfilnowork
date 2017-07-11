@@ -27,7 +27,7 @@ public class Activity1 extends BaseActivity implements View.OnClickListener{
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
     private static final int MY_PERMISSIONS_REQUEST_MANAGE_DOCUMENTS = 2;
     SharedPreferences sp;
-    Button buttonContent, buttonPick, buttonChoose;
+    Button buttonContent;
     ImageView image;
     private boolean canWeRead = false;
     private Activity activity = this;
@@ -97,7 +97,7 @@ public class Activity1 extends BaseActivity implements View.OnClickListener{
                 getImageAsContent.setType("image/*");
                 startActivityForResult(getImageAsContent, 1);
                 break;
-            
+
             default:
                 Log.v("OnClick", "Not implemented");
         }
