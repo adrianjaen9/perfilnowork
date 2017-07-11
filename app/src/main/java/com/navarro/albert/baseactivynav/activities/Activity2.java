@@ -1,8 +1,12 @@
 package com.navarro.albert.baseactivynav.activities;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -22,6 +26,9 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
     List< ImageView > fotos = new LinkedList<>();
     List< Drawable> drawables = new LinkedList<>();
     boolean primer = true;
+    Drawable foto1, foto2;
+    ImageView i1, i2;
+    int aciertos, fallos = 0;
 
 
         @Override
@@ -107,7 +114,6 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Drawable b, c;
         switch(view.getId()){
             case R.id.i1:
                 int n = troba(fotos, image1);
@@ -115,6 +121,33 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
                 Drawable a = drawables.get(n);
                 CoolImageFlipper flipper = new CoolImageFlipper(this);
                 flipper.flipImage(a, image1);
+                if (primer){
+                    foto1 = a;
+                    primer = false;
+                }else{
+                    foto2 = a;
+                    if ( foto1 == foto2) {
+                        ++aciertos;
+                    }
+                    else {
+                        Log.v("HOLA","HOLA");
+                        ++fallos;
+                        Handler handler = new Handler();
+                        Runnable runnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                Drawable drawable;
+                                drawable = getResources().getDrawable(R.drawable.phone);
+                                CoolImageFlipper flipper = new CoolImageFlipper(getApplicationContext());
+                                flipper.flipImage(drawable, image1);
+                                flipper.flipImage(drawable, image2);
+                            }
+                        };
+                        handler.postDelayed(runnable, 2000);
+                        primer = true;
+                    }
+                }
+
                 break;
             case R.id.i2:
                 n = troba(fotos, image2);
@@ -223,10 +256,33 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
+    public void juga (final ImageView i1, final ImageView i2){
+        Log.v("HOLA","HOLA");
+        ++fallos;
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Drawable drawable;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    drawable = getResources().getDrawable(R.drawable.phone, null);
+                }
+                else drawable = getResources().getDrawable(R.drawable.phone);
+                CoolImageFlipper flipper = new CoolImageFlipper(getApplicationContext());
+                flipper.flipImage(drawable, i1);
+                flipper.flipImage(drawable, i2);
+            }
+        };
+        handler.postDelayed(runnable, 2000);
+        primer = true;
+
+    }
     public int troba (List<ImageView> a, ImageView b){
         for (int i = 0; i < 16; ++i){
             if (b == a.get(i)) return i;
         }
         return 0;
     }
+
+
 }

@@ -22,28 +22,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,28 +57,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i7"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
     </LinearLayout>
 
@@ -93,28 +93,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i10"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i11"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i12"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
     </LinearLayout>
 
     <LinearLayout
@@ -128,27 +128,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i14"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i15"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/i16"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/phone" />
     </LinearLayout>
 </LinearLayout>
